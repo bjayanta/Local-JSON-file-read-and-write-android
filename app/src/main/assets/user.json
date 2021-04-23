@@ -1,0 +1,19 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Jayanta Biswas",
+      "email": "bjayanta.neo@gmail.com"
+    },
+    {
+      "id": "2",
+      "name": "Nur Mohammad",
+      "email": "nurmohammad@gmail.com"
+    },
+    {
+      "id": "3",
+      "name": "Baky Billah",
+      "email": "bakybillah@gmail.com"
+    }
+  ]
+}
