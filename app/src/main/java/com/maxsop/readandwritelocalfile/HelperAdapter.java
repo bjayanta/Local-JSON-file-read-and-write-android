@@ -1,9 +1,11 @@
 package com.maxsop.readandwritelocalfile;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,10 +16,12 @@ public class HelperAdapter extends RecyclerView.Adapter<HelperAdapter.MyViewClas
 
     ArrayList<String> name;
     ArrayList<String> email;
+    Context context;
 
-    public HelperAdapter(ArrayList<String> name, ArrayList<String> email) {
+    public HelperAdapter(ArrayList<String> name, ArrayList<String> email, Context context) {
         this.name = name;
         this.email = email;
+        this.context = context;
     }
 
     @NonNull
@@ -31,12 +35,20 @@ public class HelperAdapter extends RecyclerView.Adapter<HelperAdapter.MyViewClas
 
     @Override
     public void onBindViewHolder(@NonNull MyViewClass holder, int position) {
+        holder.name.setText(name.get(position));
+        holder.email.setText(email.get(position));
 
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "Item clicked.", Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return name.size();
     }
 
     public class MyViewClass extends RecyclerView.ViewHolder {
